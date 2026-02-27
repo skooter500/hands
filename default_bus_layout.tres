@@ -1,0 +1,34 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://5u6eb38bx5ob"]
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_j3pel"]
+resource_name = "SpectrumAnalyzer"
+fft_size = 0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_g28q7"]
+resource_name = "Reverb"
+predelay_feedback = 0.71
+room_size = 0.39
+damping = 0.0
+spread = 0.0
+dry = 0.0
+wet = 0.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_j3pel"]
+resource_name = "Delay"
+dry = 0.0
+tap1_delay_ms = 500.0
+tap2_delay_ms = 750.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_j3pel")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_g28q7")
+bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectDelay_j3pel")
+bus/0/effect/2/enabled = true
+bus/1/name = &"Record"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -0.72599316
+bus/1/send = &"Master"

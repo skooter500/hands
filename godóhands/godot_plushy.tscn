@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://gv263vu7wvna"]
+
+[ext_resource type="PackedScene" uid="uid://bbyhi45exl1kd" path="res://godot_plush/godot_plushie_animated.glb" id="1_gjrtb"]
+[ext_resource type="Script" uid="uid://bt3x47yjb572x" path="res://godóhands/godot_dude.gd" id="2_2j8xk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p4u8u"]
+radius = 0.11541933
+
+[node name="godot_plushy" type="RigidBody3D" unique_id=1896223643]
+mass = 10.0
+linear_damp = 5.0
+angular_damp = 5.0
+
+[node name="godot_plushie_animated" parent="." unique_id=65774413 instance=ExtResource("1_gjrtb")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="godot_plushie_animated" index="1" unique_id=1558841254]
+speed_scale = 0.05
+script = ExtResource("2_2j8xk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=741206695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10439405, 0)
+shape = SubResource("SphereShape3D_p4u8u")
+
+[connection signal="animation_finished" from="godot_plushie_animated/AnimationPlayer" to="godot_plushie_animated/AnimationPlayer" method="_on_animation_finished"]
+
+[editable path="godot_plushie_animated"]

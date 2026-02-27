@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://tn7fuovfh5sw"]
+
+[ext_resource type="FontFile" uid="uid://cajmfrqsxm1hk" path="res://fonts/CHECKBK0.ttf" id="1_a7si0"]
+
+[resource]
+default_font = ExtResource("1_a7si0")

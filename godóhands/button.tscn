@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://2i1nqhynnlm0"]
+
+[ext_resource type="Script" uid="uid://bmgk7nx6i65md" path="res://godóhands/button.gd" id="1_r04n3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83we6"]
+size = Vector3(0.06, 0.06, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_00tvn"]
+size = Vector3(0.06, 0.06, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r04n3"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[node name="button" type="Area3D" unique_id=1119412009]
+script = ExtResource("1_r04n3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=623182098]
+transform = Transform3D(1.0000001, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000001, 0, 0, 0)
+shape = SubResource("BoxShape3D_83we6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=581901329]
+mesh = SubResource("BoxMesh_00tvn")
+surface_material_override/0 = SubResource("StandardMaterial3D_r04n3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
