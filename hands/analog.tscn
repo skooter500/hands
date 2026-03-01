@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo3p0qs3gk7ji"]
 
-[ext_resource type="Script" uid="uid://x8lqdu7ewv6h" path="res://godóhands/analog.gd" id="1_wukub"]
-[ext_resource type="PackedScene" uid="uid://cf4fvq6d5wdue" path="res://godóhands/label.tscn" id="2_aigei"]
+[ext_resource type="Script" uid="uid://x8lqdu7ewv6h" path="res://hands/analog.gd" id="1_wukub"]
+[ext_resource type="PackedScene" uid="uid://cf4fvq6d5wdue" path="res://hands/label.tscn" id="2_aigei"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qjhr7"]
 size = Vector3(0.06, 0.06, 0.06)
@@ -10,7 +10,7 @@ size = Vector3(0.06, 0.06, 0.06)
 transparency = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1h6b"]
-size = Vector3(0.05870056, 0.14525557, 0.05883789)
+size = Vector3(0.05870056, 0.058835864, 0.05883789)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wukub"]
 size = Vector3(0.01, 1, 0.01)
@@ -34,7 +34,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1yhx7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="grab" unique_id=217118715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002822876, 0.0060560703, -0.0003662035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002822876, 0.0001977086, -0.0003662035)
 shape = SubResource("BoxShape3D_g1h6b")
 
 [node name="title" parent="." unique_id=387676606 instance=ExtResource("2_aigei")]

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://yy16rpwuvkb"]
 
-[ext_resource type="Script" uid="uid://ox8smfnahvcm" path="res://godóhands/xr_camera_3d.gd" id="1_6uc5y"]
-[ext_resource type="PackedScene" uid="uid://bo3p0qs3gk7ji" path="res://godóhands/analog.tscn" id="1_bg7yy"]
-[ext_resource type="PackedScene" uid="uid://gv263vu7wvna" path="res://godóhands/godot_plushy.tscn" id="1_g7r8d"]
-[ext_resource type="Script" uid="uid://dpam5xwxbmwcv" path="res://godóhands/recieve_signals.gd" id="1_lns6c"]
-[ext_resource type="Script" uid="uid://e0tg3ajyvad4" path="res://godóhands/hand.gd" id="2_m2llr"]
-[ext_resource type="PackedScene" uid="uid://2i1nqhynnlm0" path="res://godóhands/button.tscn" id="3_88ywl"]
+[ext_resource type="Script" uid="uid://ox8smfnahvcm" path="res://hands/xr_camera_3d.gd" id="1_6uc5y"]
+[ext_resource type="PackedScene" uid="uid://bo3p0qs3gk7ji" path="res://hands/analog.tscn" id="1_bg7yy"]
+[ext_resource type="PackedScene" uid="uid://gv263vu7wvna" path="res://hands/godot_plushy.tscn" id="1_g7r8d"]
+[ext_resource type="Script" uid="uid://dpam5xwxbmwcv" path="res://hands/recieve_signals.gd" id="1_lns6c"]
+[ext_resource type="Script" uid="uid://e0tg3ajyvad4" path="res://hands/hand.gd" id="2_m2llr"]
+[ext_resource type="PackedScene" uid="uid://2i1nqhynnlm0" path="res://hands/button.tscn" id="3_88ywl"]
 [ext_resource type="Script" uid="uid://muj58x3jqroj" path="res://addons/hand_pose_detector/hand_pose_detector.gd" id="3_bss3o"]
 [ext_resource type="Resource" uid="uid://ckjd0xa2a240p" path="res://addons/hand_pose_detector/poses/standard_pose_set.tres" id="4_1tm1p"]
-[ext_resource type="PackedScene" uid="uid://cf4fvq6d5wdue" path="res://godóhands/label.tscn" id="4_p0kt0"]
+[ext_resource type="PackedScene" uid="uid://cf4fvq6d5wdue" path="res://hands/label.tscn" id="4_p0kt0"]
 [ext_resource type="Script" uid="uid://8qemx50ogm7m" path="res://addons/hand_pose_detector/hand_pose_controller.gd" id="5_4u3l8"]
 [ext_resource type="Script" uid="uid://by434t17106ou" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="6_7k4dg"]
 [ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="7_yssoi"]
 [ext_resource type="Script" uid="uid://cmyxeshkakwd8" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="8_bdg81"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="9_3q0x4"]
-[ext_resource type="PackedScene" uid="uid://cend6ikv2su2t" path="res://godóhands/tip.tscn" id="11_d85ae"]
+[ext_resource type="PackedScene" uid="uid://cend6ikv2su2t" path="res://hands/tip.tscn" id="11_d85ae"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="12_6kynp"]
 [ext_resource type="PackedScene" uid="uid://df5hynbooj1uj" path="res://addons/hand_pose_detector/hand_pose_detector.tscn" id="13_yjmo5"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="14_kug2e"]
@@ -328,6 +328,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -
 shape = SubResource("CapsuleShape3D_p0kt0")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="XROrigin3D/right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/tip5" unique_id=1698524482]
+transform = Transform3D(1, 2.2204441e-15, 0, 4.440892e-16, 1, 0, 0, -8.881784e-16, 1, 0, 0, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="XROrigin3D/right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/tip5/CharacterBody3D" unique_id=330320486]
 transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.0000005, -5.9604645e-08, -4.4703484e-08, 0.003736999, -0.010424666, 0.00012084842)

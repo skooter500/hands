@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gv263vu7wvna"]
 
 [ext_resource type="PackedScene" uid="uid://bbyhi45exl1kd" path="res://godot_plush/godot_plushie_animated.glb" id="1_gjrtb"]
-[ext_resource type="Script" uid="uid://bt3x47yjb572x" path="res://godóhands/godot_dude.gd" id="2_2j8xk"]
+[ext_resource type="Script" uid="uid://bt3x47yjb572x" path="res://hands/godot_dude.gd" id="2_2j8xk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p4u8u"]
 radius = 0.11541933
