@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Hands"
+config/name="Godó Hands"
 run/main_scene="uid://yy16rpwuvkb"
 config/features=PackedStringArray("4.6", "Mobile")
 
