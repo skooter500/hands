@@ -9,8 +9,9 @@ enum BType {IN_OUT, TOGGLE}
 
 @export var behavior:BType = BType.IN_OUT
 
-enum State {ON, OFF}
-@export var state = State.OFF
+@export var state = false
+
+signal value_changed(new_value:bool)
 
 func _ready() -> void:
 	in_color = Color.from_hsv(randf(), 1, 1, 0.5)
@@ -26,12 +27,17 @@ func _on_area_entered(area: Area3D) -> void:
 		
 	if behavior == BType.IN_OUT:
 		$MeshInstance3D.get_surface_override_material(0).albedo_color = in_color 
+		state = true
+		value_changed.emit(state)
 	elif behavior == BType.TOGGLE:
-		if state == State.OFF:
-			state = State.ON
+		if ! state:
+			state = true
+			value_changed.emit(state)
 			$MeshInstance3D.get_surface_override_material(0).albedo_color = in_color 
 		else:
-			state = State.OFF
+			state = false
+			value_changed.emit(state)
+
 			$MeshInstance3D.get_surface_override_material(0).albedo_color = out_color 
 
 	pass # Replace with function body.
@@ -42,4 +48,7 @@ func _on_area_exited(area: Area3D) -> void:
 		return
 	if behavior == BType.IN_OUT:
 		$MeshInstance3D.get_surface_override_material(0).albedo_color = out_color	
+		state = false
+		value_changed.emit(state)
+
 	pass # Replace with function body.

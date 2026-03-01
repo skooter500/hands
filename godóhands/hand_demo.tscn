@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ox8smfnahvcm" path="res://godóhands/xr_camera_3d.gd" id="1_6uc5y"]
 [ext_resource type="PackedScene" uid="uid://bo3p0qs3gk7ji" path="res://godóhands/analog.tscn" id="1_bg7yy"]
 [ext_resource type="PackedScene" uid="uid://gv263vu7wvna" path="res://godóhands/godot_plushy.tscn" id="1_g7r8d"]
+[ext_resource type="Script" uid="uid://dpam5xwxbmwcv" path="res://godóhands/recieve_signals.gd" id="1_lns6c"]
 [ext_resource type="Script" uid="uid://e0tg3ajyvad4" path="res://godóhands/hand.gd" id="2_m2llr"]
 [ext_resource type="PackedScene" uid="uid://2i1nqhynnlm0" path="res://godóhands/button.tscn" id="3_88ywl"]
 [ext_resource type="Script" uid="uid://muj58x3jqroj" path="res://addons/hand_pose_detector/hand_pose_detector.gd" id="3_bss3o"]
@@ -35,6 +36,10 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0.16078432)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieg28"]
+radius = 0.02
+height = 0.04
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p0kt0"]
 radius = 0.02
 height = 0.04
 
@@ -129,9 +134,7 @@ _bundled = {
 }
 
 [sub_resource type="GDScript" id="GDScript_6uc5y"]
-script/source = "
-
-extends Node
+script/source = "extends Node
 
 var xr_interface: XRInterface
 @onready var environment:Environment = $\"../WorldEnvironment\".environment
@@ -151,14 +154,6 @@ func enable_passthrough() -> bool:
 		else:
 			return false
 			
-	get_viewport().transparent_bg = true
-	environment.background_mode = Environment.BG_CLEAR_COLOR
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	
-	
-	
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	xr_interface = XRServer.primary_interface	
@@ -197,28 +192,44 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="content" type="Node3D" parent="." unique_id=351446812]
 
+[node name="recieve_signals" type="Node" parent="content" unique_id=624172061]
+script = ExtResource("1_lns6c")
+
 [node name="analog" parent="content" unique_id=161052755 instance=ExtResource("1_bg7yy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.22107929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23705852, -0.0046572834, -0.49118236)
 
 [node name="godot_plushy" parent="content" unique_id=1896223643 instance=ExtResource("1_g7r8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23705852, 0, -0.27010307)
 
-[node name="button1" parent="content" unique_id=1119412009 instance=ExtResource("3_88ywl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58779025, 0, -0.21932468)
+[node name="on_off" parent="content" unique_id=1119412009 instance=ExtResource("3_88ywl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35073173, 0, -0.48942775)
 
-[node name="button2" parent="content" unique_id=393092532 instance=ExtResource("3_88ywl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2631896, 0, -0.21055175)
+[node name="toggle" parent="content" unique_id=393092532 instance=ExtResource("3_88ywl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026131094, 0, -0.48065484)
 behavior = 1
 
 [node name="label" parent="content" unique_id=427717679 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6090411, 0, -0.11241856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35123777, -0.052661713, -0.49143922)
 text = "Godó HANDs"
+horizontal_alignment = 1
 
-[node name="label2" parent="content" unique_id=258155036 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32652366, 0, -0.11241856)
+[node name="label4" parent="content" unique_id=258155036 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35123777, 0.06802264, -0.49143922)
+text = "ON/OFF"
+horizontal_alignment = 1
+
+[node name="label5" parent="content" unique_id=514401683 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019355774, 0.06802264, -0.49143922)
+text = "TOGGLE"
+horizontal_alignment = 1
+
+[node name="label2" parent="content" unique_id=1649182291 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026083082, -0.05301775, -0.4913038)
 text = "Godó HANDs"
+horizontal_alignment = 1
 
 [node name="label3" parent="content" unique_id=989036658 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.070352495, 0.2808963, -0.11241856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16670603, 0.2808963, -0.38252163)
 text = "Godó HANDs"
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=811185315]
@@ -233,7 +244,7 @@ spawn_in_front = NodePath("../../content")
 current = true
 
 [node name="left" type="XRNode3D" parent="XROrigin3D" unique_id=857214756]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28372958, -0.08487674, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28372958, 0.03631089, 0)
 tracker = &"/user/hand_tracker/left"
 show_when_tracked = true
 script = ExtResource("2_m2llr")
@@ -263,6 +274,12 @@ bone_idx = 9
 
 [node name="right_hand" parent="XROrigin3D/left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/tip5" index="0" unique_id=1362912656]
 transform = Transform3D(1, 0, -3.7252903e-09, 0, 1.0000002, -2.9802322e-08, 0, -2.9802322e-08, 1.0000005, 0.0037370138, -0.0004246682, 0.00012084842)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="XROrigin3D/left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/tip5" unique_id=327108641]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="XROrigin3D/left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/tip5/CharacterBody3D" unique_id=145019174]
+transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.0000005, -5.9604645e-08, -4.4703484e-08, 0.003736999, -0.010424666, 0.00012084842)
+shape = SubResource("CapsuleShape3D_ieg28")
 
 [node name="right" type="XRNode3D" parent="XROrigin3D" unique_id=1332199885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382, 0, 0)
@@ -308,6 +325,12 @@ transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000004, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/tip5/right_hand" unique_id=734859244]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.018, 0)
+shape = SubResource("CapsuleShape3D_p0kt0")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="XROrigin3D/right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/tip5" unique_id=1698524482]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="XROrigin3D/right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D/tip5/CharacterBody3D" unique_id=330320486]
+transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.0000005, -5.9604645e-08, -4.4703484e-08, 0.003736999, -0.010424666, 0.00012084842)
 shape = SubResource("CapsuleShape3D_ieg28")
 
 [node name="HandPoseDetector" parent="XROrigin3D/right" unique_id=1275132854 instance=ExtResource("13_yjmo5")]
@@ -350,6 +373,8 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=625995929]
 environment = SubResource("Environment_c4jos")
 
+[connection signal="value_changed" from="content/on_off" to="content/recieve_signals" method="_on_button_1_value_changed"]
+[connection signal="value_changed" from="content/toggle" to="content/recieve_signals" method="_on_button_2_value_changed"]
 [connection signal="pose_ended" from="XROrigin3D/left/HandPoseDetector" to="XROrigin3D/left" method="_on_hand_pose_detector_pose_ended"]
 [connection signal="pose_started" from="XROrigin3D/left/HandPoseDetector" to="XROrigin3D/left" method="_on_hand_pose_detector_pose_started"]
 [connection signal="pose_ended" from="XROrigin3D/right/HandPoseDetector" to="XROrigin3D/right" method="_on_hand_pose_detector_pose_ended"]
