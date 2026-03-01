@@ -2,8 +2,8 @@
 
 A starter kit for creating holographic interactions in Godot.
 
+[![YouTube](http://img.youtube.com/vi/zwAYG7cGYbA/0.jpg)](https://www.youtube.com/watch?v=zwAYG7cGYbA)
 
-[![Alt text](https://img.youtube.com/vi/y13e6wUb7pXJEb9h/0.jpg)](https://www.youtube.com/watch?v=y13e6wUb7pXJEb9h)
 
 Uses and included:
 
