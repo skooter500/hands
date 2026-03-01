@@ -192,6 +192,25 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="content" type="Node3D" parent="." unique_id=351446812]
 
+[node name="record" parent="content" unique_id=1603534657 instance=ExtResource("3_88ywl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59329855, 0.38707995, -0.49527264)
+behavior = 1
+
+[node name="label7" parent="content" unique_id=1033122597 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59707594, 0.30735976, -0.49527264)
+text = "RECORD"
+horizontal_alignment = 1
+
+[node name="play" parent="content" unique_id=819150630 instance=ExtResource("3_88ywl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74835205, 0.38707995, -0.49527264)
+
+[node name="label8" parent="content" unique_id=661259583 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75212944, 0.30735976, -0.49527264)
+text = "PLAY"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="content" unique_id=1727792791]
+
 [node name="recieve_signals" type="Node" parent="content" unique_id=624172061]
 script = ExtResource("1_lns6c")
 
@@ -249,6 +268,11 @@ tracker = &"/user/hand_tracker/left"
 show_when_tracked = true
 script = ExtResource("2_m2llr")
 
+[node name="label" parent="XROrigin3D/left" unique_id=2116145421 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11788067, 0, 0)
+text = "NONE"
+horizontal_alignment = 1
+
 [node name="HandPoseDetector" type="Node" parent="XROrigin3D/left" unique_id=1832235387]
 script = ExtResource("3_bss3o")
 hand_pose_set = ExtResource("4_1tm1p")
@@ -280,11 +304,6 @@ transform = Transform3D(1, 0, -3.7252903e-09, 0, 1.0000002, -2.9802322e-08, 0, -
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="XROrigin3D/left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/tip5/CharacterBody3D" unique_id=145019174]
 transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.0000005, -5.9604645e-08, -4.4703484e-08, 0.003736999, -0.010424666, 0.00012084842)
 shape = SubResource("CapsuleShape3D_ieg28")
-
-[node name="label" parent="XROrigin3D/left" unique_id=2116145421 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11788067, 0, 0)
-text = "NONE"
-horizontal_alignment = 1
 
 [node name="right" type="XRNode3D" parent="XROrigin3D" unique_id=1332199885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382, 0, 0)
@@ -384,6 +403,8 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=625995929]
 environment = SubResource("Environment_c4jos")
 
+[connection signal="value_changed" from="content/record" to="content/recieve_signals" method="_on_record_value_changed"]
+[connection signal="value_changed" from="content/play" to="content/recieve_signals" method="_on_play_value_changed"]
 [connection signal="value_changed" from="content/on_off" to="content/recieve_signals" method="_on_button_1_value_changed"]
 [connection signal="value_changed" from="content/toggle" to="content/recieve_signals" method="_on_button_2_value_changed"]
 [connection signal="pose_ended" from="XROrigin3D/left/HandPoseDetector" to="XROrigin3D/left" method="_on_hand_pose_detector_pose_ended"]
