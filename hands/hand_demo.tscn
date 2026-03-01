@@ -282,7 +282,7 @@ transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.00
 shape = SubResource("CapsuleShape3D_ieg28")
 
 [node name="label" parent="XROrigin3D/left" unique_id=2116145421 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09229949, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11788067, 0, 0)
 text = "NONE"
 horizontal_alignment = 1
 
@@ -344,7 +344,7 @@ hand_tracker_name = "/user/hand_tracker/right"
 hand_pose_set = ExtResource("4_1tm1p")
 
 [node name="label" parent="XROrigin3D/right" unique_id=1701602142 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091921985, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15169045, 0, 0)
 text = "NONE"
 horizontal_alignment = 1
 
