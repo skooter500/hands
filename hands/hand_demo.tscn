@@ -199,7 +199,7 @@ script = ExtResource("1_lns6c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23705852, -0.0046572834, -0.49118236)
 
 [node name="godot_plushy" parent="content" unique_id=1896223643 instance=ExtResource("1_g7r8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23705852, 0, -0.27010307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019337118, 0.19271566, -0.27010307)
 
 [node name="on_off" parent="content" unique_id=1119412009 instance=ExtResource("3_88ywl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35073173, 0, -0.48942775)
@@ -229,7 +229,7 @@ text = "Godó HANDs"
 horizontal_alignment = 1
 
 [node name="label3" parent="content" unique_id=989036658 instance=ExtResource("4_p0kt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16670603, 0.2808963, -0.38252163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3963589, 0.2808963, -0.49108338)
 text = "Godó HANDs"
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=811185315]
@@ -280,6 +280,11 @@ transform = Transform3D(1, 0, -3.7252903e-09, 0, 1.0000002, -2.9802322e-08, 0, -
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="XROrigin3D/left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D/tip5/CharacterBody3D" unique_id=145019174]
 transform = Transform3D(-3.7252903e-08, 0, 1, 2.9802322e-08, 1.0000002, 0, -1.0000005, -5.9604645e-08, -4.4703484e-08, 0.003736999, -0.010424666, 0.00012084842)
 shape = SubResource("CapsuleShape3D_ieg28")
+
+[node name="label" parent="XROrigin3D/left" unique_id=2116145421 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09229949, 0, 0)
+text = "NONE"
+horizontal_alignment = 1
 
 [node name="right" type="XRNode3D" parent="XROrigin3D" unique_id=1332199885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382, 0, 0)
@@ -337,6 +342,11 @@ shape = SubResource("CapsuleShape3D_ieg28")
 [node name="HandPoseDetector" parent="XROrigin3D/right" unique_id=1275132854 instance=ExtResource("13_yjmo5")]
 hand_tracker_name = "/user/hand_tracker/right"
 hand_pose_set = ExtResource("4_1tm1p")
+
+[node name="label" parent="XROrigin3D/right" unique_id=1701602142 instance=ExtResource("4_p0kt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091921985, 0, 0)
+text = "NONE"
+horizontal_alignment = 1
 
 [node name="left_controller" type="XRController3D" parent="XROrigin3D" unique_id=302286056]
 tracker = &"/user/hand_pose_controller/left"
