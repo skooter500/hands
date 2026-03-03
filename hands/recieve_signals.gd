@@ -52,6 +52,7 @@ func _on_record_value_changed(new_value: bool) -> void:
 		is_recording = false
 		_bake_thread = Thread.new()
 		_bake_thread.start(_bake_wav)
+		_bake_wav()
 	$"../label7".text = "RECORDING..." if is_recording else "RECORD"
 
 func _bake_wav() -> void:
