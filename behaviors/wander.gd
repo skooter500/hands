@@ -1,3 +1,5 @@
+@tool
+
 class_name Wander extends SteeringBehavior
 
 @export var distance:float = 20

@@ -5,9 +5,12 @@
 [ext_resource type="Script" uid="uid://dpam5xwxbmwcv" path="res://hands/recieve_signals.gd" id="3_gdqjo"]
 [ext_resource type="PackedScene" uid="uid://bo3p0qs3gk7ji" path="res://hands/analog.tscn" id="4_3bsaq"]
 [ext_resource type="PackedScene" uid="uid://gv263vu7wvna" path="res://hands/godot_plushy.tscn" id="5_smggf"]
+[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="6_gdqjo"]
 [ext_resource type="Script" uid="uid://ox8smfnahvcm" path="res://hands/xr_camera_3d.gd" id="6_nm8mo"]
+[ext_resource type="Script" uid="uid://b6jj7yxhu2hi1" path="res://behaviors/follow_path.gd" id="7_3bsaq"]
 [ext_resource type="Script" uid="uid://e0tg3ajyvad4" path="res://hands/hand.gd" id="7_a7p7y"]
 [ext_resource type="Script" uid="uid://muj58x3jqroj" path="res://addons/hand_pose_detector/hand_pose_detector.gd" id="8_osxf6"]
+[ext_resource type="Script" uid="uid://bfoar4ahwpbra" path="res://behaviors/PathDrawer.gd" id="8_smggf"]
 [ext_resource type="Resource" uid="uid://ckjd0xa2a240p" path="res://addons/hand_pose_detector/poses/standard_pose_set.tres" id="9_h5un7"]
 [ext_resource type="Script" uid="uid://8qemx50ogm7m" path="res://addons/hand_pose_detector/hand_pose_controller.gd" id="10_imiir"]
 [ext_resource type="Script" uid="uid://by434t17106ou" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_3j7e3"]
@@ -18,6 +21,16 @@
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="16_oaaro"]
 [ext_resource type="PackedScene" uid="uid://df5hynbooj1uj" path="res://addons/hand_pose_detector/hand_pose_detector.tscn" id="17_tyba3"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="18_wbbsf"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_smggf"]
+size = Vector3(0.1, 0.1, 0.2)
+
+[sub_resource type="Curve3D" id="Curve3D_nm8mo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.8809062, 0, -0.72581714, 0, 0, 0, 0, 0, 0, -0.1090827, 0, -1.4410374, 0, 0, 0, 0, 0, 0, 1.2400959, 0, -1.176943, 0, 0, 0, 0, 0, 0, 0.3904004, 0, -0.9530367, 0, 0, 0, 0, 0, 0, -0.9243307, 0, -2.5308106, 0, 0, 0, 0, 0, 0, 1.2809744, 0, -2.1557865),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [sub_resource type="Resource" id="Resource_c8e3v"]
 script = ExtResource("11_3j7e3")
@@ -250,6 +263,26 @@ horizontal_alignment = 1
 [node name="label3" parent="content" unique_id=989036658 instance=ExtResource("2_wsk3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3963589, 0.2808963, -0.49108338)
 text = "Godó HANDs"
+
+[node name="Boid" type="CharacterBody3D" parent="content" unique_id=391183907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1466813, -2.6431017)
+script = ExtResource("6_gdqjo")
+max_speed = 1.0
+metadata/_custom_type_script = "uid://cmw6n17mebkcx"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="content/Boid" unique_id=2024548457]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_smggf")
+
+[node name="FollowPath" type="Node" parent="content/Boid" unique_id=828747454 node_paths=PackedStringArray("path")]
+script = ExtResource("7_3bsaq")
+path = NodePath("../../Path3D")
+waypoint_seek_distance = 1.0
+metadata/_custom_type_script = "uid://b6jj7yxhu2hi1"
+
+[node name="Path3D" type="Path3D" parent="content" unique_id=824006094]
+curve = SubResource("Curve3D_nm8mo")
+script = ExtResource("8_smggf")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=811185315]
 
