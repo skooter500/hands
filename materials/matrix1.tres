@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bypyk3i4e4inc"]
+
+[ext_resource type="Shader" uid="uid://beas4lrl2b55y" path="res://materials/matrix1.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://8nfa33h61ggv" path="res://materials/matrix1_texture_1.png" id="2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("2")

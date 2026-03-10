@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://by0v7as0ensmo"]
+[gd_scene format=3 uid="uid://by0v7as0ensmo"]
 
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="2_on7x8"]
@@ -18,10 +18,10 @@
 
 [sub_resource type="PlaneMesh" id="10"]
 
-[node name="root" type="Node3D"]
+[node name="root" type="Node3D" unique_id=186004661]
 script = ExtResource("7")
 
-[node name="School" type="Node3D" parent="."]
+[node name="School" type="Node3D" parent="." unique_id=780717573]
 script = ExtResource("8")
 fish_scene = ExtResource("4")
 radius = 150
@@ -31,31 +31,31 @@ cell_size = 20
 grid_size = 1000
 center_path = NodePath("../Center")
 
-[node name="SchoolConfig" type="Node" parent="."]
+[node name="SchoolConfig" type="Node" parent="." unique_id=433630856]
 script = ExtResource("6")
 
-[node name="Player" parent="." instance=ExtResource("2_on7x8")]
+[node name="Player" parent="." unique_id=894410075 instance=ExtResource("2_on7x8")]
 
 [node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player")]
 boid_player = NodePath("../../../camera follower")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1363737969]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.0512, 0.23691)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=1473375758]
 transform = Transform3D(0.646177, 0.763187, 2.01452e-08, 6.97809e-09, -3.23043e-08, 1, 0.763187, -0.646177, -2.61999e-08, 0, 12.0512, 0.23691)
 
-[node name="Center" type="Marker3D" parent="."]
+[node name="Center" type="Marker3D" parent="." unique_id=1656269209]
 script = ExtResource("5")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1452662435]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=764099724]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -35.9149, 0)
 visible = false
 mesh = SubResource("10")
 
-[node name="camera follower" type="CharacterBody3D" parent="."]
+[node name="camera follower" type="CharacterBody3D" parent="." unique_id=811547521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 1.45153)
 script = ExtResource("1")
 vel = Vector3(0, -0.25, 0)
@@ -63,33 +63,33 @@ max_speed = 20.0
 max_force = 30
 draw_gizmos = false
 
-[node name="offset_pursue" type="Node" parent="camera follower"]
+[node name="offset_pursue" type="Node" parent="camera follower" unique_id=954644071]
 script = ExtResource("10")
 weight = 5.0
 draw_gizmos = false
 
-[node name="Avoidance" type="Node" parent="camera follower"]
+[node name="Avoidance" type="Node" parent="camera follower" unique_id=555811108]
 script = ExtResource("11")
 feeler_angle = 90
 updates_per_second = 10
 weight = 10.0
 
-[node name="Obstacles" type="Node3D" parent="."]
+[node name="Obstacles" type="Node3D" parent="." unique_id=1343723376]
 script = ExtResource("9")
 obstacle_scene = ExtResource("3")
 radius = 200
 bubble_radius = 50
 center_path = NodePath("../Center")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=892554505]
 
-[node name="SceneSwitcher" parent="." instance=ExtResource("13")]
+[node name="SceneSwitcher" parent="." unique_id=301864266 instance=ExtResource("13")]
 
-[node name="ui_layer" parent="." instance=ExtResource("15_itnq4")]
+[node name="ui_layer" parent="." unique_id=705416608 instance=ExtResource("15_itnq4")]
 
-[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("14_6mwug")]
+[node name="basic_skybox_3d_flip" parent="." unique_id=2019155196 instance=ExtResource("14_6mwug")]
 
-[node name="ui2" parent="." instance=ExtResource("15_qvhbi")]
+[node name="ui2" parent="." unique_id=2013845330 instance=ExtResource("15_qvhbi")]
 script = null
 
 [editable path="Player"]

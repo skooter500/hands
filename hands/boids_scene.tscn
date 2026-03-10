@@ -169,6 +169,7 @@ func enable_passthrough() -> bool:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	DebugDraw3D.config.thickness = 0.005
 	xr_interface = XRServer.primary_interface	
 	if xr_interface and xr_interface.is_initialized():
 		print(\"OpenXR initialised successfully\")

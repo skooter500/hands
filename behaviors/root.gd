@@ -35,28 +35,3 @@ func _ready():
 func _process(delta):
 	on_draw_gizmos()
 	# var g = _create_graph(&"FPS", true, false, DebugDrawGraph.TEXT_CURRENT | DebugDrawGraph.TEXT_AVG | DebugDrawGraph.TEXT_MAX | DebugDrawGraph.TEXT_MIN, &"", DebugDrawGraph.SIDE_BOTTOM, DebugDrawGraph.POSITION_LEFT_TOP if Engine.is_editor_hint() else DebugDrawGraph.POSITION_RIGHT_TOP, Vector2i(200, 80), custom_font)
-	var g = _create_graph(&"FPS", true, false, DebugDraw2DGraph.TEXT_CURRENT | DebugDraw2DGraph.TEXT_AVG | DebugDraw2DGraph.TEXT_MAX | DebugDraw2DGraph.TEXT_MIN, &"", DebugDraw2DGraph.SIDE_BOTTOM, DebugDraw2DGraph.POSITION_LEFT_TOP if Engine.is_editor_hint() else DebugDraw2DGraph.POSITION_RIGHT_TOP, Vector2i(500, 110), custom_font)
-	
-	g.frame_time_mode = false
-
-func _create_graph(title, is_fps, show_title, flags, parent := &"", parent_side := DebugDraw2DGraph.SIDE_BOTTOM, pos = DebugDraw2DGraph.POSITION_LEFT_BOTTOM, size := Vector2i(500, 500), font = null) -> DebugDraw2DGraph:
-	var graph := DebugDraw2D.get_graph(title)
-	if !graph:
-		if is_fps:
-			graph = DebugDraw2D.create_fps_graph(title)
-		else:
-			graph = DebugDraw2D.create_graph(title)
-		
-		if graph:
-			graph.size = size
-			graph.buffer_size = 50
-			graph.corner = pos
-			graph.show_title = show_title
-			graph.show_text_flags = flags
-			graph.custom_font = font
-			graph.text_color = Color.CHARTREUSE
-			graph.background_color = Color.TRANSPARENT
-			graph.text_size = text_size
-			graph.set_parent(parent, parent_side)
-	
-	return graph

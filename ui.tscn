@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://civ5ab35112gw"]
+
+[ext_resource type="Script" uid="uid://b0nuq5dkf2nri" path="res://creature_scenes/ui.gd" id="1_fyqef"]
+
+[node name="ui" type="Node"]
+script = ExtResource("1_fyqef")
+
+[node name="scroll" type="ScrollContainer" parent="."]
+visible = false
+offset_left = 31.0
+offset_top = 21.0
+offset_right = 958.0
+offset_bottom = 637.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="console" type="Label" parent="scroll"]
+layout_mode = 2
+
+[node name="variables" type="Node2D" parent="."]
+visible = false
+position = Vector2(1692, 15)
+
+[node name="GridContainer" type="GridContainer" parent="variables"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 159.0
+offset_top = 12.0
+offset_right = 159.0
+offset_bottom = 12.0
+grow_horizontal = 0
