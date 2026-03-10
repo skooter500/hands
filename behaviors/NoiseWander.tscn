@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c78rv6n8baln7"]
+[gd_scene format=3 uid="uid://c78rv6n8baln7"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2"]
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="3"]
@@ -23,85 +23,85 @@ point_count = 9
 
 [sub_resource type="Environment" id="6"]
 
-[node name="root" type="Node3D"]
+[node name="root" type="Node3D" unique_id=2077611917]
 
-[node name="camera follower" type="CharacterBody3D" parent="."]
+[node name="camera follower" type="CharacterBody3D" parent="." unique_id=1178032840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6254, 17.1365, -32.9351)
 script = ExtResource("7")
 
-[node name="OffsetPursue" type="Node" parent="camera follower"]
+[node name="OffsetPursue" type="Node" parent="camera follower" unique_id=591748714]
 script = ExtResource("5")
 
-[node name="creature" type="Node3D" parent="."]
+[node name="creature" type="Node3D" parent="." unique_id=2053936948]
 
-[node name="spineanimator" type="Node" parent="creature" node_paths=PackedStringArray("bones")]
+[node name="spineanimator" type="Node" parent="creature" unique_id=1343683275 node_paths=PackedStringArray("bones")]
 script = ExtResource("2")
 bones = [NodePath("../boid"), null, null, null, null]
 
-[node name="tail2" type="Node3D" parent="creature"]
+[node name="tail2" type="Node3D" parent="creature" unique_id=1150457641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.504121)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/tail2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/tail2" unique_id=520697412]
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("8")
 
-[node name="MeshInstance2" type="MeshInstance3D" parent="creature"]
+[node name="MeshInstance2" type="MeshInstance3D" parent="creature" unique_id=420108942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 mesh = SubResource("1")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3" type="MeshInstance3D" parent="creature"]
+[node name="MeshInstance3" type="MeshInstance3D" parent="creature" unique_id=1118268957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 mesh = SubResource("1")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance4" type="MeshInstance3D" parent="creature"]
+[node name="MeshInstance4" type="MeshInstance3D" parent="creature" unique_id=1539466510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.05538)
 mesh = SubResource("1")
 skeleton = NodePath("../..")
 
-[node name="boid" type="CharacterBody3D" parent="creature"]
+[node name="boid" type="CharacterBody3D" parent="creature" unique_id=346961536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.4253)
 script = ExtResource("7")
 
-[node name="MeshInstance5" type="MeshInstance3D" parent="creature/boid"]
+[node name="MeshInstance5" type="MeshInstance3D" parent="creature/boid" unique_id=2030339882]
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("5")
 skeleton = NodePath("../../..")
 
-[node name="NoiseWander" type="Node" parent="creature/boid"]
+[node name="NoiseWander" type="Node" parent="creature/boid" unique_id=1916602555]
 script = ExtResource("4")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=261943048]
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2073955657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90.1317)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Path3D" type="Path3D" parent="." unique_id=1232212207]
 transform = Transform3D(0.029265, 0, -0.999572, 0, 1, 0, 0.999572, 0, 0.029265, -27.7878, -4.57764e-05, -12.9541)
 curve = SubResource("2")
 script = ExtResource("9")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1038352554]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.0512, 0.23691)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=1585676984]
 transform = Transform3D(0.646177, 0.763187, 2.01452e-08, 6.97809e-09, -3.23043e-08, 1, 0.763187, -0.646177, -2.61999e-08, 0, 12.0512, 0.23691)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=104506549]
 transform = Transform3D(-1, -6.14885e-10, -8.74185e-08, 6.14883e-10, 0.999901, -0.0140669, 8.74185e-08, -0.0140669, -0.999901, 44.6254, 17.1365, -32.9351)
 environment = SubResource("6")
 far = 10000.0
 script = ExtResource("3")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=679721245]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1050.0
 offset_bottom = 768.0
 script = ExtResource("6")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1447343463]
 layout_mode = 0
 offset_left = 501.0
 offset_top = 44.0
@@ -110,7 +110,7 @@ offset_bottom = 84.0
 text = "Octaves:
 "
 
-[node name="fractal_octaves" type="HSlider" parent="Control"]
+[node name="fractal_octaves" type="HSlider" parent="Control" unique_id=1757165890]
 layout_mode = 0
 offset_left = 704.0
 offset_top = 10.0
@@ -118,7 +118,7 @@ offset_right = 1010.0
 offset_bottom = 106.0
 max_value = 9.0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=1952973734]
 layout_mode = 0
 offset_left = 491.0
 offset_top = 441.0
@@ -127,14 +127,14 @@ offset_bottom = 481.0
 text = "Distance:
 "
 
-[node name="period" type="HSlider" parent="Control"]
+[node name="period" type="HSlider" parent="Control" unique_id=77363724]
 layout_mode = 0
 offset_left = 707.0
 offset_top = 88.0
 offset_right = 1013.0
 offset_bottom = 184.0
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control" unique_id=480978386]
 layout_mode = 0
 offset_left = 488.0
 offset_top = 329.0
@@ -144,7 +144,7 @@ text = "Amplitude:
 
 "
 
-[node name="persistance" type="HSlider" parent="Control"]
+[node name="persistance" type="HSlider" parent="Control" unique_id=1240661299]
 layout_mode = 0
 offset_left = 701.0
 offset_top = 225.0
@@ -152,14 +152,14 @@ offset_right = 1007.0
 offset_bottom = 321.0
 max_value = 1.0
 
-[node name="distance" type="HSlider" parent="Control"]
+[node name="distance" type="HSlider" parent="Control" unique_id=1950358250]
 layout_mode = 0
 offset_left = 702.0
 offset_top = 415.0
 offset_right = 1008.0
 offset_bottom = 511.0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="Control" unique_id=959476927]
 layout_mode = 0
 offset_left = 499.0
 offset_top = 187.0
@@ -169,14 +169,14 @@ text = "Radius:
 
 "
 
-[node name="radius" type="HSlider" parent="Control"]
+[node name="radius" type="HSlider" parent="Control" unique_id=1418068216]
 layout_mode = 0
 offset_left = 709.0
 offset_top = 152.0
 offset_right = 1015.0
 offset_bottom = 248.0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="Control" unique_id=142442377]
 layout_mode = 0
 offset_left = 497.0
 offset_top = 117.0
@@ -185,7 +185,7 @@ offset_bottom = 157.0
 text = "Period:
 "
 
-[node name="amplitude" type="HSlider" parent="Control"]
+[node name="amplitude" type="HSlider" parent="Control" unique_id=1190592230]
 layout_mode = 0
 offset_left = 696.0
 offset_top = 314.0
@@ -193,7 +193,7 @@ offset_right = 1002.0
 offset_bottom = 410.0
 max_value = 180.0
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="Control"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="Control" unique_id=547201015]
 layout_mode = 0
 offset_left = 489.0
 offset_top = 263.0

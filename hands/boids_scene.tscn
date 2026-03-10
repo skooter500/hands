@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://muj58x3jqroj" path="res://addons/hand_pose_detector/hand_pose_detector.gd" id="8_osxf6"]
 [ext_resource type="Script" uid="uid://bfoar4ahwpbra" path="res://behaviors/PathDrawer.gd" id="8_smggf"]
 [ext_resource type="Resource" uid="uid://ckjd0xa2a240p" path="res://addons/hand_pose_detector/poses/standard_pose_set.tres" id="9_h5un7"]
+[ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="9_smggf"]
 [ext_resource type="Script" uid="uid://8qemx50ogm7m" path="res://addons/hand_pose_detector/hand_pose_controller.gd" id="10_imiir"]
 [ext_resource type="Script" uid="uid://by434t17106ou" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_3j7e3"]
 [ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="12_7f4qf"]
@@ -169,7 +170,7 @@ func enable_passthrough() -> bool:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DebugDraw3D.config.thickness = 0.005
+	DebugDraw3D.scoped_config().set_thickness(0.005)
 	xr_interface = XRServer.primary_interface	
 	if xr_interface and xr_interface.is_initialized():
 		print(\"OpenXR initialised successfully\")
@@ -286,6 +287,7 @@ curve = SubResource("Curve3D_nm8mo")
 script = ExtResource("8_smggf")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=811185315]
+script = ExtResource("9_smggf")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1130441161 node_paths=PackedStringArray("spawn_in_front")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10548, 0)
