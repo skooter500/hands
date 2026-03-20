@@ -1,3 +1,7 @@
+@tool
+
+
+
 class_name NoiseWander extends SteeringBehavior
 
 @export var frequency = 0.3

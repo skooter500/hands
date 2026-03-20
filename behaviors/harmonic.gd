@@ -1,3 +1,5 @@
+@tool
+
 class_name Harmonic extends SteeringBehavior
 
 @export var frequency = 0.3

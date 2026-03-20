@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddk4ncyq37n3d"]
+[gd_scene format=3 uid="uid://ddk4ncyq37n3d"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="2_4myfi"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="14"]
 [ext_resource type="Script" uid="uid://ci8facjqq07ft" path="res://behaviors/constrain.gd" id="15"]
 [ext_resource type="Material" uid="uid://ca5mcii5ms7ww" path="res://behaviors/CobraTrail.tres" id="15_jv7r0"]
-[ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="17_fnhpk"]
+[ext_resource type="PackedScene" path="res://ui_layer.tscn" id="17_fnhpk"]
 
 [sub_resource type="PrismMesh" id="7"]
 
@@ -42,61 +42,61 @@ point_count = 2
 
 [sub_resource type="BoxShape3D" id="15"]
 
-[node name="root" type="Node3D"]
+[node name="root" type="Node3D" unique_id=2081488540]
 script = ExtResource("6")
 
-[node name="Player" parent="." instance=ExtResource("2_4myfi")]
+[node name="Player" parent="." unique_id=1250164487 instance=ExtResource("2_4myfi")]
 
 [node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player", "boid")]
 boid_player = NodePath("../../../camera follower")
 boid = NodePath("../../../Creature/boid")
 
-[node name="camera follower" type="CharacterBody3D" parent="."]
+[node name="camera follower" type="CharacterBody3D" parent="." unique_id=361546257]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.973738, 12.5344, 41.7624)
 script = ExtResource("13")
 max_force = 30
 draw_gizmos = false
 
-[node name="offset_pursue" type="Node" parent="camera follower" node_paths=PackedStringArray("leader_boid")]
+[node name="offset_pursue" type="Node" parent="camera follower" unique_id=600630619 node_paths=PackedStringArray("leader_boid")]
 script = ExtResource("5")
 leader_boid = NodePath("../../Creature/boid")
 weight = 5.0
 draw_gizmos = false
 
-[node name="Avoidance" type="Node" parent="camera follower"]
+[node name="Avoidance" type="Node" parent="camera follower" unique_id=2041810552]
 script = ExtResource("7")
 draw_gizmos = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1332903284]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.0512, 0.23691)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=663072252]
 transform = Transform3D(0.646177, 0.763187, 2.01452e-08, 6.97809e-09, -3.23043e-08, 1, 0.763187, -0.646177, -2.61999e-08, 0, 12.0512, 0.23691)
 
-[node name="SceneSwitcher" parent="." instance=ExtResource("8")]
+[node name="SceneSwitcher" parent="." unique_id=509026563 instance=ExtResource("8")]
 
-[node name="Creature" type="Node" parent="."]
+[node name="Creature" type="Node" parent="." unique_id=1350526502]
 
-[node name="spineanimator" type="Node" parent="Creature" node_paths=PackedStringArray("bones")]
+[node name="spineanimator" type="Node" parent="Creature" unique_id=929867444 node_paths=PackedStringArray("bones")]
 script = ExtResource("2")
 bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../body2"), NodePath("../body3"), NodePath("../tail")]
 
-[node name="boid" type="CharacterBody3D" parent="Creature"]
+[node name="boid" type="CharacterBody3D" parent="Creature" unique_id=995710864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5154)
 script = ExtResource("13")
 max_force = 50
 damping = 0.3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Creature/boid"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Creature/boid" unique_id=2053725894]
 transform = Transform3D(2.5, 0, 0, 0, -2.18557e-07, -2.5, 0, 5, -1.09278e-07, 0, 0, 0.695293)
 mesh = SubResource("7")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("10")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/boid"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/boid" unique_id=843792290]
 shape = SubResource("8")
 
-[node name="NoiseWander" type="Node" parent="Creature/boid"]
+[node name="NoiseWander" type="Node" parent="Creature/boid" unique_id=1432875566]
 script = ExtResource("14")
 frequency = 5.0
 radius = 20.0
@@ -104,93 +104,93 @@ amplitude = 200
 distance = 100
 weight = 10.0
 
-[node name="Constrain" type="Node" parent="Creature/boid"]
+[node name="Constrain" type="Node" parent="Creature/boid" unique_id=1004496342]
 script = ExtResource("15")
 center_path = NodePath("../../../Marker3D")
 
-[node name="tail" type="CharacterBody3D" parent="Creature"]
+[node name="tail" type="CharacterBody3D" parent="Creature" unique_id=1472104643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.196979)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Creature/tail"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Creature/tail" unique_id=1613231488]
 transform = Transform3D(2, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, 0, 0, -0.504121)
 mesh = SubResource("9")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("10")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/tail"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/tail" unique_id=39527076]
 shape = SubResource("10")
 disabled = true
 
-[node name="body3" type="CharacterBody3D" parent="Creature"]
+[node name="body3" type="CharacterBody3D" parent="Creature" unique_id=58036657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4211)
 
-[node name="MeshInstance2" type="MeshInstance3D" parent="Creature/body3"]
+[node name="MeshInstance2" type="MeshInstance3D" parent="Creature/body3" unique_id=1430158757]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("10")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body3" unique_id=391145513]
 shape = SubResource("12")
 
-[node name="body2" type="CharacterBody3D" parent="Creature"]
+[node name="body2" type="CharacterBody3D" parent="Creature" unique_id=613270923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.34383)
 
-[node name="MeshInstance3" type="MeshInstance3D" parent="Creature/body2"]
+[node name="MeshInstance3" type="MeshInstance3D" parent="Creature/body2" unique_id=1226320457]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("10")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body2" unique_id=1912713269]
 shape = SubResource("13")
 
-[node name="body1" type="CharacterBody3D" parent="Creature"]
+[node name="body1" type="CharacterBody3D" parent="Creature" unique_id=1438894204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.09192)
 
-[node name="MeshInstance4" type="MeshInstance3D" parent="Creature/body1"]
+[node name="MeshInstance4" type="MeshInstance3D" parent="Creature/body1" unique_id=1771586408]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("10")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body1" unique_id=1163804277]
 shape = SubResource("14")
 
-[node name="Ship" type="CharacterBody3D" parent="."]
+[node name="Ship" type="CharacterBody3D" parent="." unique_id=1966658290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8709, 0, 0)
 script = ExtResource("13")
 
-[node name="cobramk3" parent="Ship" instance=ExtResource("9")]
+[node name="cobramk3" parent="Ship" unique_id=503367003 instance=ExtResource("9")]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 
-[node name="Trail" type="Node3D" parent="Ship"]
+[node name="Trail" type="Node3D" parent="Ship" unique_id=1689205390]
 transform = Transform3D(-0.999064, 0.0432532, 0, -0.0432532, -0.999064, 0, 0, 0, 1, 0.55, -0.075, -0.1)
 script = ExtResource("4")
 width_curve = SubResource("16")
 material = ExtResource("15_jv7r0")
 
-[node name="Trail2" type="Node3D" parent="Ship"]
+[node name="Trail2" type="Node3D" parent="Ship" unique_id=1451140622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, -0.075, -0.1)
 script = ExtResource("4")
 width_curve = SubResource("17")
 material = ExtResource("15_jv7r0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship" unique_id=1447991132]
 shape = SubResource("15")
 
-[node name="Wander" type="Node" parent="Ship"]
+[node name="Wander" type="Node" parent="Ship" unique_id=841533156]
 script = ExtResource("3")
 radius = 10.03
 jitter = 200.0
 weight = 5.0
 
-[node name="Constrain" type="Node" parent="Ship"]
+[node name="Constrain" type="Node" parent="Ship" unique_id=868016328]
 script = ExtResource("15")
 center_path = NodePath("../../Marker3D")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=852005707]
 
-[node name="ui_layer" parent="." instance=ExtResource("17_fnhpk")]
+[node name="ui_layer" parent="." unique_id=1209621690 instance=ExtResource("17_fnhpk")]
 
 [editable path="Player"]
