@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Godó Hands"
 run/main_scene="uid://yy16rpwuvkb"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 
 [audio]
 
@@ -34,7 +34,7 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 
@@ -42,7 +42,7 @@ finger_tip=""
 
 [gui]
 
-theme/custom_font="uid://0jk2p2kfmllu"
+theme/custom_font="uid://cit1v1hi7n43q"
 
 [physics]
 
